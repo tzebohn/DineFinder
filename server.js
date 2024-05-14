@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000;
 
 const YELP_API_KEY = 'pxpuU19gDhxBiwnQ4shNHcjX-WOCHr7hy5O6LIvqR38leKvabywinbTNsfSuEG2baO_TIXbSEH7-Mi_fvVF-rGZkF9YmiQeBlUn2cQdhmQNDuLBJXJp1xClUiqzPZXYx';
 
-let currentPage = 0; //Initial page
+
 const pageSize = 50; //Max number of items per request
 let totalResults = 0; //Initial amount of restaurants before api call
 let allResults = []; //Store all restaurants in array
@@ -23,7 +23,8 @@ app.get('/restaurants', async (req, res) => {
     const { latitude, longitude } = req.query;
 
     try {
-        
+        let currentPage = 0; //Initial page
+
         // Make initial request to get total results
         const initialResponse = await axios.get('https://api.yelp.com/v3/businesses/search', {
             params: {
