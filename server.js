@@ -31,6 +31,7 @@ app.get('/restaurants', async (req, res) => {
             params: {
                 latitude,
                 longitude,
+                categories: 'restaurants',
                 limit: pageSize, //Determines the amount of restaurants per request, in this case 50. 
                 radius: 5000, //Default 5000 meter radius.
                 offset: currentPage * pageSize //Offset determines the range of restaurants per request. 
@@ -55,6 +56,7 @@ app.get('/restaurants', async (req, res) => {
                 params: {
                     latitude,
                     longitude,
+                    categories: 'restaurants', 
                     limit: pageSize,
                     radius: 5000,
                     offset: currentPage * pageSize 
